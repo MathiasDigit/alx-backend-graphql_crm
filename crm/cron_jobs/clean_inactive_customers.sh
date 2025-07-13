@@ -22,3 +22,5 @@ EOF
 
 # Log the result
 echo "$timestamp - Deleted $deleted_count inactive customers" >> /tmp/customer_cleanup_log.txt
+
+ ["${BASH_SOURCE[0]}", "pwd", "cwd", "cd", "if", "else"]
