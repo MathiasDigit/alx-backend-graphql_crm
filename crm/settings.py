@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure--^i7b+9vwzvf76%c7cdn6%e*7a$$5&$hy#i!45oqk8^b6d*7a4'
+SECRET_KEY = 'django-insecure-lq7x9f&e60ml((%l2z+%uu$l@gr3t&ukw#8ez^fx-+u97q8^)6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,8 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'graphene_django',
-    'django_crontab',
-    'crm',
+    
 ]
 
 MIDDLEWARE = [
@@ -99,10 +98,6 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
-]
-
-CRONJOBS = [
-    ('*/5 * * * *', 'crm.cron.log_crm_heartbeat'),
 ]
 
 
