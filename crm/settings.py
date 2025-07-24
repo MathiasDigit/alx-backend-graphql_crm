@@ -102,7 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 CRONJOBS = [
-    ('0 */12 * * * *', 'crm.cron.update_low_stock'),
+    ('0 */12 * * * ', 'crm.cron.update_low_stock'),
 ]
 
 
