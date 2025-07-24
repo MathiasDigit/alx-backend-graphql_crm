@@ -1,0 +1,2 @@
+2025-07-24 12:43:46,182 - Order ID: 123, Email: client1@example.com
+2025-07-24 12:43:46,182 - Order ID: 456, Email: client2@example.com

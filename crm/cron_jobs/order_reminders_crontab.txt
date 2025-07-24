@@ -1,0 +1,1 @@
+0 8 * * * C:\Users\bellm\Documents\Project1\Test1\alx-backend-graphql_crm\alx_backend_graphql_crm\crm\cron_jobs\send_order_reminders.py >> C:\Users\bellm\Documents\Project1\Test1\alx-backend-graphql_crm\alx_backend_graphql_crm\crm\cron_jobs\order_reminders_cron.log 2>&1
