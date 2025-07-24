@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'graphene_django',
     'django_crontab',
+    'django_celery_beat',
     'crm',
 ]
 
@@ -105,6 +106,12 @@ CRONJOBS = [
     ('0 */12 * * * ', 'crm.cron.update_low_stock'),
 ]
 
+CELERY_BEAT_SCHEDULE = {
+    'generate-crm-report': {
+        'task': 'crm.tasks.generate_crm_report',
+        'schedule': crontab(day_of_week='mon', hour=6, minute=0),
+    },
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/

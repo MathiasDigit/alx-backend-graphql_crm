@@ -1,0 +1,2 @@
+[2025-07-24 12:00:00] Rapport : 153 clients, 289 commandes, 41253.75 €
+[2025-07-24 00:00:01] Rapport : 150 clients, 280 commandes, 40310.50 €
