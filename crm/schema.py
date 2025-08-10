@@ -6,6 +6,10 @@ from django.core.exceptions import ValidationError
 from django.db import transaction
 from graphql import GraphQLError
 from crm.utils import validate_phone_format  # You will define this helper
+from graphene_django.filter import DjangoFilterConnectionField
+from crm.filters import CustomerFilter, ProductFilter, OrderFilter
+from crm.models import Customer, Product, Order
+from graphene_django.types import DjangoObjectType
 
 class CustomerType(DjangoObjectType):
     class Meta:
@@ -167,3 +171,31 @@ class Query(graphene.ObjectType):
 
     def resolve_customers(self, info):
         return Customer.objects.all()
+
+class CustomerNode(DjangoObjectType):
+    class Meta:
+        model = Customer
+        interfaces = (relay.Node, )
+        fields = "__all__"
+
+class ProductNode(DjangoObjectType):
+    class Meta:
+        model = Product
+        interfaces = (relay.Node, )
+        fields = "__all__"
+
+class OrderNode(DjangoObjectType):
+    class Meta:
+        model = Order
+        interfaces = (relay.Node, )
+        fields = "__all__"
+
+class Query(ObjectType):
+    customer = relay.Node.Field(CustomerNode)
+    all_customers = DjangoFilterConnectionField(CustomerNode, filterset_class=CustomerFilter, order_by=graphene.List(of_type=graphene.String))
+
+    product = relay.Node.Field(ProductNode)
+    all_products = DjangoFilterConnectionField(ProductNode, filterset_class=ProductFilter, order_by=graphene.List(of_type=graphene.String))
+
+    order = relay.Node.Field(OrderNode)
+    all_orders = DjangoFilterConnectionField(OrderNode, filterset_class=OrderFilter, order_by=graphene.List(of_type=graphene.String))
